@@ -2,8 +2,9 @@
 'use strict';
 
 
-const SerialPort = require('serialport');
-const debug = require('debug')('rfid-chafon');
+const SerialPort = require('serialport'),
+	debug = require('debug')('rfid-chafon'),
+	EventEmitter = require('events');
 
 const rfidReaderParser = function () {
 
@@ -70,9 +71,12 @@ const rfidReaderParser = function () {
 
 
 
-class RFID {
+class RFID extends EventEmitter {
 
 	constructor(port = '/dev/ttyUSB0') {
+
+		super();
+		this._readInterval = null;
 
 		this.serialPort = new SerialPort(port, {
 			baudrate: 38400,
@@ -254,6 +258,31 @@ class RFID {
 
 	close() {
 		this.serialPort.close();
+
+	}
+
+	startReading(interval = 5) {
+		return this.open()
+			.then(() => {
+
+				this._readInterval = setInterval(() => {
+					this.read()
+						.then(data => {
+							debug('data', data);
+							this.emit('data', data);
+						}).catch(e => {
+							this.emit('error', e);
+						});
+
+				}, interval * 1000);
+			});
+
+	}
+
+	stopReading() {
+		if (this._readInterval) {
+			clearInterval(this._readInterval);
+		}
 
 	}
 
