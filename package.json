@@ -1,6 +1,6 @@
 {
 	"name": "rfid-chafon",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "A RFID Reader/Writer Library for a chafon usb reader",
 	"main": "index.js",
 	"scripts": {
