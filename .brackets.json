@@ -1,0 +1,16 @@
+{
+    "jscodehints.detectedExclusions": [
+        "Volumes/datastore/development/ha4us/ha4us.gui/assets/lib/json/json_parse"
+    ],
+    "jwolfe.file-tree-exclude.list": [
+        "node_modules",
+        "bower_components",
+        ".git"
+    ],
+    "language": {
+        "javascript": {
+            "linting.prefer": "JSHint",
+            "linting.usePreferredOnly": true
+        }
+    }
+}
