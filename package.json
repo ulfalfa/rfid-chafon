@@ -1,19 +1,20 @@
 {
-  "name": "rfid-chafon",
-  "version": "1.0.0",
-  "description": "A RFID Reader/Writer Library for a chafon usb reader",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
+	"name": "rfid-chafon",
+	"version": "1.0.0",
+	"description": "A RFID Reader/Writer Library for a chafon usb reader",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
     "rfid",
     "chafon"
   ],
-  "author": "ulfalfa",
-  "license": "MIT",
-  "dependencies": {
-    "debug": "^2.2.0",
-    "serialport": "^4.0.3"
-  }
+	"author": "ulfalfa",
+	"license": "MIT",
+	"dependencies": {
+		"debug": "^2.2.0",
+		"serialport": "^4.0.3"
+	},
+	"repository": "https://github.com/ulfalfa/rfid-chafon.git"
 }
