@@ -7,14 +7,14 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [
-    "rfid",
-    "chafon"
-  ],
+		"rfid",
+		"chafon"
+	],
 	"author": "ulfalfa",
 	"license": "MIT",
 	"dependencies": {
 		"debug": "^2.2.0",
-		"serialport": "^4.0.3"
+		"serialport": "^7.1.5"
 	},
 	"repository": "https://github.com/ulfalfa/rfid-chafon.git"
 }
