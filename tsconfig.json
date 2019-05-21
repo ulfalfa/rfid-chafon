@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "declaration": true,
+    "outDir": "./dist",
+    "allowJs": false,
+    "noImplicitAny": false,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": ["src/**/*", ],
+  "exclude": ["src/**/*.spec.ts"]
+}

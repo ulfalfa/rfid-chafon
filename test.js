@@ -1,4 +1,4 @@
-var RFID = require('./index');
+var RFID = require('./dist/index').RFID;
 
 let rfid = new RFID('/dev/tty.usbserial');
 
