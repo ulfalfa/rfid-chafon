@@ -1,10 +1,13 @@
 {
-	"name": "rfid-chafon",
-	"version": "1.1.2",
-	"description": "A RFID Reader/Writer Library for a chafon usb reader",
+	"name": "@ulfalfa/rfid",
+	"version": "1.2.0",
+	"description": "A RFID Reader/Writer Library for a chafon/d302 usb reader",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "tsc -p tsconfig.json",
+		"lint": "tslint --project .",
+		"test": "ava",
+		"watch": "nodemon"
 	},
 	"keywords": [
 		"rfid",
@@ -12,9 +15,63 @@
 	],
 	"author": "ulfalfa",
 	"license": "MIT",
+	"files": [
+		"dist"
+	],
 	"dependencies": {
-		"debug": "^2.2.0",
+		"debug": "^4.1.1",
 		"serialport": "^7.1.5"
 	},
-	"repository": "https://github.com/ulfalfa/rfid-chafon.git"
+	"repository": "https://github.com/ulfalfa/rfid-chafon.git",
+	"ava": {
+		"compileEnhancements": false,
+		"extensions": [
+			"ts"
+		],
+		"require": [
+			"ts-node/register"
+		],
+		"sources": [
+			"src/**/*.ts"
+		],
+		"files": [
+			"src/**/*.spec.ts"
+		]
+	},
+	"nyc": {
+		"exclude": [
+			"**/*.js",
+			"**/*.d.ts",
+			"**/*.spec.ts"
+		],
+		"extension": [
+			".ts"
+		],
+		"reporter": [
+			"html",
+			"text"
+		],
+		"cache": true,
+		"sourceMap": true,
+		"instrument": true,
+		"all": false,
+		"report-dir": "./build/coverage",
+		"temp-directory": "./build/nyc_output"
+	},
+	"devDependencies": {
+		"@types/node": "^12.0.2",
+		"@types/serialport": "^7.0.3",
+		"ava": "^1.4.1",
+		"cz-conventional-changelog": "^2.1.0",
+		"rxjs": "6.4",
+		"standard-version": "^6.0.1",
+		"ts-node": "^8.1.0",
+		"tslint": "^5.16.0",
+		"typescript": "^3.4.5"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
 }
