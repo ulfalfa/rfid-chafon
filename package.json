@@ -18,6 +18,9 @@
 	"files": [
 		"dist"
 	],
+	"publishConfig": {
+		"access": "public"
+	},
 	"dependencies": {
 		"debug": "^4.1.1",
 		"serialport": "^7.1.5"
