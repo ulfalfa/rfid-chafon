@@ -24,7 +24,7 @@ export class D302Reader extends RFIDReader {
     let csum = 0
     for (let i = 0; i < data.length - 2; i++) {
       // tslint:disable-next-line
-      csum = csum ^ data[i];
+      csum = csum ^ data[i]
     }
     return csum
   }
@@ -70,10 +70,7 @@ export class D302Reader extends RFIDReader {
   protected atomicWrite(id): Promise<void> {
     debug('Atomic Write', id)
     return new Promise((resolve, reject) => {
-      const cmdBuffer = Buffer.from(
-        '0201a50b000000000000' + id + 'AA03',
-        'hex'
-      )
+      const cmdBuffer = Buffer.from('0201a50b000000000000' + id + 'AA03', 'hex')
 
       // now calculate checksum and fill cmdBuffer and doubling the 0xAA
       cmdBuffer[cmdBuffer.length - 2] = this.calcCRC(cmdBuffer)
@@ -110,7 +107,7 @@ export class D302Reader extends RFIDReader {
 
         const cmd = Buffer.from(CMD_INFO, 'hex')
 
-        this.serialPort.on('data', data => {
+        this.serialPort.once('data', data => {
           if (Buffer.compare(data, cmd) === 0) {
             resolve('OK')
           } else {
