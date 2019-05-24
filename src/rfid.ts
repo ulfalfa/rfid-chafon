@@ -1,5 +1,8 @@
 import * as SerialPort from 'serialport'
 
+import { Observable, interval } from 'rxjs'
+import { switchMap, filter, distinctUntilChanged } from 'rxjs/operators'
+
 export abstract class RFIDReader {
   protected serialPort: SerialPort
 
@@ -47,6 +50,18 @@ export abstract class RFIDReader {
         })
       }
     })
+  }
+
+  observe(intervalSec: number = 1): Observable<string> {
+    return interval(intervalSec * 1000).pipe(
+      switchMap(() => {
+        return this.read().catch(e => {
+          // do nothing
+          return undefined
+        })
+      }),
+      filter(data => !!data)
+    )
   }
 
   open(): Promise<void> {

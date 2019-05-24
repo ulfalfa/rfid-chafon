@@ -40,7 +40,7 @@ class ChafonParser extends Transform {
     const data = Buffer.alloc(50)
     for (let i = 4; i < this.buffer.length; i++) {
       // tslint:disable-next-line
-      csum = csum ^ this.buffer[i];
+      csum = csum ^ this.buffer[i]
       if (skipNext && this.buffer[i].toString(16) === '0') {
         skipNext = false
       } else {
@@ -100,7 +100,7 @@ export class ChafonReader extends RFIDReader {
     this.serialPort.pipe(this.parser)
   }
 
-  protected doCommand(cmdString: string | Buffer): Promise<ChafonResult> {
+  public doCommand(cmdString: string | Buffer): Promise<ChafonResult> {
     const cmd =
       typeof cmdString === 'string' ? Buffer.from(cmdString, 'hex') : cmdString
     return new Promise((resolve, reject) => {
@@ -154,7 +154,7 @@ export class ChafonReader extends RFIDReader {
     let csum = 0
     for (const part of idBuffer) {
       // tslint:disable-next-line
-      csum = csum ^ part;
+      csum = csum ^ part
       cmdBuffer[pos] = part
       pos++
       // double the AAs

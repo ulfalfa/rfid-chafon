@@ -1,6 +1,7 @@
 import { serial, TestInterface } from 'ava'
 
 import { ChafonReader as RFID } from './chafon'
+import { take, tap } from 'rxjs/operators'
 
 interface Context {
   rfid: RFID
@@ -37,7 +38,19 @@ test('can read tag', async t => {
   t.log(result)
   t.pass()
 })
+test('observe', t => {
+  const rfid = t.context.rfid
 
+  t.plan(10)
+
+  return rfid.observe().pipe(
+    take(10),
+    tap(data => {
+      t.log('Read', data)
+      t.pass()
+    })
+  )
+})
 test('write and read', async t => {
   const rfid = t.context.rfid
 
@@ -46,7 +59,7 @@ test('write and read', async t => {
   const result = await rfid.read()
   t.is(result, '012345679A')
 })
-test('safe write with default', async t => {
+test.only('safe write with default', async t => {
   const rfid = t.context.rfid
 
   const result = await rfid.write('012345679B')

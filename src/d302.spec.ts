@@ -9,7 +9,7 @@ interface Context {
 
 const test = serial as TestInterface<Context>
 
-const PORT = '/dev/tty.wchusbserial141410'
+const PORT = '/dev/tty.wchusbserial14320'
 
 test.beforeEach(async t => {
   const rfid = new RFID(PORT)
@@ -20,7 +20,7 @@ test.beforeEach(async t => {
   }
 })
 
-test.afterEach(async t => {
+test.afterEach.always(async t => {
   await t.context.rfid.close()
 })
 
@@ -29,6 +29,20 @@ test('can get Info', async t => {
 
   const result = await rfid.getInfo()
   t.is(result, 'OK')
+})
+
+test('observe', t => {
+  t.plan(10)
+
+  const rfid = t.context.rfid
+
+  return rfid.observe().pipe(
+    take(10),
+    tap(data => {
+      t.log(data)
+      t.pass()
+    })
+  )
 })
 
 test('can read tag', async t => {
