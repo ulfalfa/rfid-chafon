@@ -1,6 +1,6 @@
 {
 	"name": "@ulfalfa/rfid",
-	"version": "2.1.1",
+	"version": "2.1.2",
 	"description": "A RFID Reader/Writer Library for a chafon/d302 usb reader",
 	"main": "dist/index.js",
 	"scripts": {
