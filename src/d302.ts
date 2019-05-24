@@ -34,6 +34,7 @@ export class D302Reader extends RFIDReader {
     const timeout = new Promise((resolve, reject) => {
       const id = setTimeout(() => {
         clearTimeout(id)
+        this.serialPort.removeAllListeners()
         reject(`Timed out reading code `)
       }, 1000)
     })
