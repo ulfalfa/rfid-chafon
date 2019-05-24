@@ -2,7 +2,7 @@
 	"name": "@ulfalfa/rfid",
 	"version": "2.1.0",
 	"description": "A RFID Reader/Writer Library for a chafon/d302 usb reader",
-	"main": "index.js",
+	"main": "dist/index.js",
 	"scripts": {
 		"build": "tsc -p tsconfig.json",
 		"lint": "tslint --project .",
