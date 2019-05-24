@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/ulfalfa/rfid-chafon/compare/v2.1.0...v2.1.1) (2019-05-24)
+
+
+
 ## [2.1.0](https://github.com/ulfalfa/rfid-chafon/compare/v2.0.1...v2.1.0) (2019-05-24)
 
 
