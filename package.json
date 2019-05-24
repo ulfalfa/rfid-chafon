@@ -7,7 +7,8 @@
 		"build": "tsc -p tsconfig.json",
 		"lint": "tslint --project .",
 		"test": "ava",
-		"watch": "nodemon"
+		"watch": "nodemon",
+		"release": "standard-version"
 	},
 	"keywords": [
 		"rfid",
