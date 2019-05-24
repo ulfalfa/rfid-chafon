@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.3](https://github.com/ulfalfa/rfid-chafon/compare/v2.1.2...v2.1.3) (2019-05-24)
+
+
+### Bug Fixes
+
+* **d302:** removing all listeners in case of timeout ([55a2a57](https://github.com/ulfalfa/rfid-chafon/commit/55a2a57))
+
+
+
 ### [2.1.2](https://github.com/ulfalfa/rfid-chafon/compare/v2.1.1...v2.1.2) (2019-05-24)
 
 
