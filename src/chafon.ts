@@ -131,12 +131,18 @@ export class ChafonReader extends RFIDReader {
   read(): Promise<string> {
     debug('Entered Read')
 
-    return this.doCommand(CMD_READ).then(data =>
-      data.data
-        .slice(3, 8)
-        .toString('hex')
-        .toUpperCase()
-    )
+    return this.doCommand(CMD_READ).then(data => {
+      if (!data.crc) {
+        throw new Error('CRCERROR')
+      } else if (data.data[2] === 1) {
+        return undefined
+      } else {
+        return data.data
+          .slice(3, 8)
+          .toString('hex')
+          .toUpperCase()
+      }
+    })
   }
 
   protected atomicWrite(id: string): Promise<void> {
