@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.4](https://github.com/ulfalfa/rfid-chafon/compare/v2.1.3...v2.1.4) (2019-05-25)
+
+
+### Bug Fixes
+
+* **chafon:** return empty reads with undefined and throw crc error ([ec51528](https://github.com/ulfalfa/rfid-chafon/commit/ec51528))
+
+
+
 ### [2.1.3](https://github.com/ulfalfa/rfid-chafon/compare/v2.1.2...v2.1.3) (2019-05-24)
 
 
